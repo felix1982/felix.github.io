@@ -4,22 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>教老婆编程系列-前言 | felix1982的博客</title>
+    <title>python的pip修改默认源 | felix1982的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="felix1982">
     
 
     
-    <meta name="keywords" content="code">
+    <meta name="description" content="一、在windows环境下修改pip镜像源的方法(以python3.5为例) (1):在windows文件管理器中,输入 %APPDATA% (2):会定位到一个新的目录下，在该目录下新建pip文件夹，然后到pip文件夹里面去新建个pip.ini文件 (3):在新建的pip.ini文件中输入以下内容，搞定1234[global]timeout = 6000index-url = http://py">
+<meta name="keywords" content="code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教老婆编程系列-前言">
-<meta property="og:url" content="http://yoursite.com/2018/07/28/婆编程系列-前言/index.html">
+<meta property="og:title" content="python的pip修改默认源">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/python的pip修改默认源/index.html">
 <meta property="og:site_name" content="felix1982的博客">
+<meta property="og:description" content="一、在windows环境下修改pip镜像源的方法(以python3.5为例) (1):在windows文件管理器中,输入 %APPDATA% (2):会定位到一个新的目录下，在该目录下新建pip文件夹，然后到pip文件夹里面去新建个pip.ini文件 (3):在新建的pip.ini文件中输入以下内容，搞定1234[global]timeout = 6000index-url = http://py">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-14T14:37:11.058Z">
+<meta property="og:updated_time" content="2018-12-27T00:28:25.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教老婆编程系列-前言">
+<meta name="twitter:title" content="python的pip修改默认源">
+<meta name="twitter:description" content="一、在windows环境下修改pip镜像源的方法(以python3.5为例) (1):在windows文件管理器中,输入 %APPDATA% (2):会定位到一个新的目录下，在该目录下新建pip文件夹，然后到pip文件夹里面去新建个pip.ini文件 (3):在新建的pip.ini文件中输入以下内容，搞定1234[global]timeout = 6000index-url = http://py">
 
     
     <link rel="alternative" href="/atom.xml" title="felix1982的博客" type="application/atom+xml">
@@ -79,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/07/28/婆编程系列-前言/" title="教老婆编程系列-前言" itemprop="url">教老婆编程系列-前言</a>
+      <a href="/2018/12/27/python的pip修改默认源/" title="python的pip修改默认源" itemprop="url">python的pip修改默认源</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="felix1982" target="_blank" itemprop="author">felix1982</a>
 		
   <p class="article-time">
-    <time datetime="2018-07-27T18:58:00.000Z" itemprop="datePublished"> 发表于 2018-07-28</time>
+    <time datetime="2018-12-27T00:28:24.000Z" itemprop="datePublished"> 发表于 2018-12-27</time>
     
   </p>
 </header>
@@ -99,9 +102,16 @@
 		
 		</div>
 		
-		<blockquote>
-</blockquote>
-  
+		<p>一、在windows环境下修改pip镜像源的方法(以python3.5为例)</p>
+<p>(1):在windows文件管理器中,输入 %APPDATA%</p>
+<p>(2):会定位到一个新的目录下，在该目录下新建pip文件夹，然后到pip文件夹里面去新建个pip.ini文件</p>
+<p>(3):在新建的pip.ini文件中输入以下内容，搞定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">timeout = 6000</span><br><span class="line">index-url = http://pypi.douban.com/simple</span><br><span class="line">trusted-host = pypi.douban.com</span><br></pre></td></tr></table></figure></p>
+<p>二、在linux系统中更新pip源的方式(以centos,python2.7为例)</p>
+<p>在linux环境下的修改方式和在windows环境下修改方式基本相同，这里简单总结一下:</p>
+<p>(1):在用户的家目录下面创建名为.pip文件夹</p>
+<p>(2):在创建好的.pip文件夹中创建名为pip.conf的文件</p>
+<p>(3):在pip.conf文件中输入以下内容，ok!!!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">timeout = 6000</span><br><span class="line">index-url = http://pypi.douban.com/simple</span><br><span class="line">trusted-host = pypi.douban.com</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -113,7 +123,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/07/28/婆编程系列-前言/" data-title="教老婆编程系列-前言 | felix1982的博客" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/12/27/python的pip修改默认源/" data-title="python的pip修改默认源 | felix1982的博客" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,19 +136,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/12/27/python的pip修改默认源/" title="python的pip修改默认源">
-  <strong>上一篇：</strong><br/>
-  <span>
-  python的pip修改默认源</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/04/05/java_sourcecode_junit/"  title="Java源码系列(1) --Junit">
+<a href="/2018/07/28/婆编程系列-前言/"  title="教老婆编程系列-前言">
  <strong>下一篇：</strong><br/> 
- <span>Java源码系列(1) --Junit
+ <span>教老婆编程系列-前言
 </span>
 </a>
 </div>
