@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Intellij Idea插件开发系列(1)--入门 | felix1982的博客</title>
+    <title>Spring Boot启动时自动打开浏览器 | felix1982的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="felix1982">
     
 
     
-    <meta name="description" content="愿我码海半生,回首仍是少年.">
-<meta name="keywords" content="Intellij">
+    <meta name="description" content="这是一个开发小技巧,可以省去每次启动Spring Boot后自己打开浏览器，输入URL的麻烦。  1234567891011121314151617181920212223242526@SpringBootApplicationpublic class SpringBootDemoApplication &amp;#123;    public static void main(String[] arg">
+<meta name="keywords" content="code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intellij Idea插件开发系列(1)--入门">
-<meta property="og:url" content="http://yoursite.com/2018/04/03/intellij_idea_1/index.html">
+<meta property="og:title" content="Spring Boot启动时自动打开浏览器">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/pring-Boot启动时自动打开浏览器/index.html">
 <meta property="og:site_name" content="felix1982的博客">
-<meta property="og:description" content="愿我码海半生,回首仍是少年.">
+<meta property="og:description" content="这是一个开发小技巧,可以省去每次启动Spring Boot后自己打开浏览器，输入URL的麻烦。  1234567891011121314151617181920212223242526@SpringBootApplicationpublic class SpringBootDemoApplication &amp;#123;    public static void main(String[] arg">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-05T14:29:51.000Z">
+<meta property="og:updated_time" content="2018-12-27T15:16:02.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intellij Idea插件开发系列(1)--入门">
-<meta name="twitter:description" content="愿我码海半生,回首仍是少年.">
+<meta name="twitter:title" content="Spring Boot启动时自动打开浏览器">
+<meta name="twitter:description" content="这是一个开发小技巧,可以省去每次启动Spring Boot后自己打开浏览器，输入URL的麻烦。  1234567891011121314151617181920212223242526@SpringBootApplicationpublic class SpringBootDemoApplication &amp;#123;    public static void main(String[] arg">
 
     
     <link rel="alternative" href="/atom.xml" title="felix1982的博客" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/03/intellij_idea_1/" title="Intellij Idea插件开发系列(1)--入门" itemprop="url">Intellij Idea插件开发系列(1)--入门</a>
+      <a href="/2018/12/27/pring-Boot启动时自动打开浏览器/" title="Spring Boot启动时自动打开浏览器" itemprop="url">Spring Boot启动时自动打开浏览器</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="felix1982" target="_blank" itemprop="author">felix1982</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-03T13:39:37.000Z" itemprop="datePublished"> 发表于 2018-04-03</time>
+    <time datetime="2018-12-27T15:15:00.000Z" itemprop="datePublished"> 发表于 2018-12-27</time>
     
   </p>
 </header>
@@ -102,21 +102,19 @@
 		
 		</div>
 		
-		  
+		<blockquote>
+<p>这是一个开发小技巧,可以省去每次启动Spring Boot后自己打开浏览器，输入URL的麻烦。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class SpringBootDemoApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringBootDemoApplication.class, args);</span><br><span class="line">        String url = &quot;http://localhost:8063&quot;;</span><br><span class="line">        if(Desktop.isDesktopSupported())&#123;</span><br><span class="line">            Desktop desktop = Desktop.getDesktop();</span><br><span class="line">            try &#123;</span><br><span class="line">                desktop.browse(new URI(url));</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; catch (URISyntaxException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            Runtime runtime = Runtime.getRuntime();</span><br><span class="line">            try &#123;</span><br><span class="line">                runtime.exec(&quot;rundll32 url.dll,FileProtocolHandler &quot; + url);</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                // TODO Auto-generated catch block</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(url);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Intellij-Idea插件开发/">Intellij Idea插件开发</a>
+  <a class="article-category-link" href="/categories/spring-boot/">spring boot</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Intellij/">Intellij</a>
-  </div>
 
 </div>
 
@@ -124,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/03/intellij_idea_1/" data-title="Intellij Idea插件开发系列(1)--入门 | felix1982的博客" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/12/27/pring-Boot启动时自动打开浏览器/" data-title="Spring Boot启动时自动打开浏览器 | felix1982的博客" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -137,14 +135,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/05/java_sourcecode_junit/" title="Java源码系列(1) --Junit">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Java源码系列(1) --Junit</span>
+
+<div class="next">
+<a href="/2018/12/27/python的pip修改默认源/"  title="python的pip修改默认源">
+ <strong>下一篇：</strong><br/> 
+ <span>python的pip修改默认源
+</span>
 </a>
 </div>
-
 
 </nav>
 

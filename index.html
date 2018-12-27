@@ -83,6 +83,63 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/12/27/pring-Boot启动时自动打开浏览器/" title="Spring Boot启动时自动打开浏览器" itemprop="url">Spring Boot启动时自动打开浏览器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="felix1982" target="_blank" itemprop="author">felix1982</a>
+		
+  <p class="article-time">
+    <time datetime="2018-12-27T15:15:00.000Z" itemprop="datePublished"> 发表于 2018-12-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <blockquote>
+<p>这是一个开发小技巧,可以省去每次启动Spring Boot后自己打开浏览器，输入URL的麻烦。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class SpringBootDemoApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(SpringBootDemoApplication.class, args);</span><br><span class="line">        String url = &quot;http://localhost:8063&quot;;</span><br><span class="line">        if(Desktop.isDesktopSupported())&#123;</span><br><span class="line">            Desktop desktop = Desktop.getDesktop();</span><br><span class="line">            try &#123;</span><br><span class="line">                desktop.browse(new URI(url));</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; catch (URISyntaxException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            Runtime runtime = Runtime.getRuntime();</span><br><span class="line">            try &#123;</span><br><span class="line">                runtime.exec(&quot;rundll32 url.dll,FileProtocolHandler &quot; + url);</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                // TODO Auto-generated catch block</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(url);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/spring-boot/">spring boot</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/12/27/python的pip修改默认源/" title="python的pip修改默认源" itemprop="url">python的pip修改默认源</a>
   </h1>
   <p class="article-author">By
@@ -337,6 +394,10 @@
 		
 		  
 			<li><a href="/categories/python/" title="python">python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring-boot/" title="spring boot">spring boot<sup>1</sup></a></li>
 		  
 		
 		</ul>
