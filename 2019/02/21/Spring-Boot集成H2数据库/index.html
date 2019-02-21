@@ -12,21 +12,21 @@
 
     
     <meta name="description" content="在日常开发过程中,特别是敏捷开发过程以及测试过程中,我们有时候不想操纵真实的数据库.那么,H2数据库是个不错的选择。  H2是一个开源的、纯java实现的关系数据库。h2数据库特点（1）性能、小巧（2）同时支持网络版和嵌入式版本，另外还提供了内存版（3）有比较好的兼容性，支持相当标准的sql标准（4）提供了非常友好的基于web的数据库管理界面  在spring boot项目中配置H2数据库 app">
-<meta name="keywords" content="code">
+<meta name="keywords" content="spring boot,h2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot集成H2数据库">
 <meta property="og:url" content="http://yoursite.com/2019/02/21/Spring-Boot集成H2数据库/index.html">
 <meta property="og:site_name" content="felix1982的博客">
 <meta property="og:description" content="在日常开发过程中,特别是敏捷开发过程以及测试过程中,我们有时候不想操纵真实的数据库.那么,H2数据库是个不错的选择。  H2是一个开源的、纯java实现的关系数据库。h2数据库特点（1）性能、小巧（2）同时支持网络版和嵌入式版本，另外还提供了内存版（3）有比较好的兼容性，支持相当标准的sql标准（4）提供了非常友好的基于web的数据库管理界面  在spring boot项目中配置H2数据库 app">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/1.png">
-<meta property="og:image" content="http://yoursite.com/images/2.png">
-<meta property="og:image" content="http://yoursite.com/images/3.png">
-<meta property="og:updated_time" content="2019-02-21T14:56:48.736Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/Spring-Boot集成H2数据库/images/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/Spring-Boot集成H2数据库/images/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/Spring-Boot集成H2数据库/images/3.png">
+<meta property="og:updated_time" content="2019-02-21T15:05:32.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot集成H2数据库">
 <meta name="twitter:description" content="在日常开发过程中,特别是敏捷开发过程以及测试过程中,我们有时候不想操纵真实的数据库.那么,H2数据库是个不错的选择。  H2是一个开源的、纯java实现的关系数据库。h2数据库特点（1）性能、小巧（2）同时支持网络版和嵌入式版本，另外还提供了内存版（3）有比较好的兼容性，支持相当标准的sql标准（4）提供了非常友好的基于web的数据库管理界面  在spring boot项目中配置H2数据库 app">
-<meta name="twitter:image" content="http://yoursite.com/images/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/21/Spring-Boot集成H2数据库/images/1.png">
 
     
     <link rel="alternative" href="/atom.xml" title="felix1982的博客" type="application/atom+xml">
@@ -93,7 +93,7 @@
 		<a href="/about" title="felix1982" target="_blank" itemprop="author">felix1982</a>
 		
   <p class="article-time">
-    <time datetime="2019-02-21T14:56:38.000Z" itemprop="datePublished"> 发表于 2019-02-21</time>
+    <time datetime="2019-02-21T14:56:00.000Z" itemprop="datePublished"> 发表于 2019-02-21</time>
     
   </p>
 </header>
@@ -123,15 +123,25 @@
 </ul>
 <p><strong>schema.sql</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line"> <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="literal">null</span>,</span><br><span class="line"> age <span class="built_in">int</span> <span class="literal">null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p><strong>data.sql</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span>  <span class="keyword">INTO</span>  student <span class="keyword">VALUES</span> (<span class="number">1</span>,<span class="string">'张三'</span>,<span class="number">10</span>);</span><br><span class="line"><span class="keyword">INSERT</span>  <span class="keyword">INTO</span>  student <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">'李四'</span>,<span class="number">16</span>);</span><br></pre></td></tr></table></figure></p>
-<p>项目目录结构变为如下:<br><img src="/images/1.png" alt="image1"></p>
+<p>项目目录结构变为如下:<br><img src="images/1.png" alt="image1"></p>
 <p>配置完成后,启动项目后，浏览器中输入<a href="http://localhost:8080/h2-console/，显示H2数据的连接页面" target="_blank" rel="noopener">http://localhost:8080/h2-console/，显示H2数据的连接页面</a></p>
-<p><img src="/images/2.png" alt="image2"></p>
-<p>登录后页面为:<br><img src="/images/3.png" alt="image3"></p>
+<p><img src="images/2.png" alt="image2"></p>
+<p>登录后页面为:<br><img src="images/3.png" alt="image3"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/spring-boot/">spring boot</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/spring-boot/">spring boot</a><a href="/tags/h2/">h2</a>
+  </div>
 
 </div>
 
@@ -191,7 +201,7 @@
 		  
 		
 		  
-			<li><a href="/categories/spring-boot/" title="spring boot">spring boot<sup>1</sup></a></li>
+			<li><a href="/categories/spring-boot/" title="spring boot">spring boot<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -205,6 +215,14 @@
 		
 			
 				<li><a href="/tags/pip/" title="pip">pip<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/spring-boot/" title="spring boot">spring boot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/h2/" title="h2">h2<sup>1</sup></a></li>
 			
 		
 		</ul>
